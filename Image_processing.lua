@@ -70,7 +70,9 @@ ImageBlock = {
 			o.blue = 0
 			o.type = image_type
 			o.color = image_color
-			o.name = 'block_' .. order
+			local randn = 16^6 * math.random()
+			randn = math.floor(randn)
+			o.name = (_addon and _addon.name or 'image') .. '_gensym_' .. tostring(t):sub(6) .. string.format('_%.8x', randn):sub(3)
 			o.x = settings.display.pos.x
 			o.y = settings.display.pos.y
 		elseif image_type == 'logo' then
@@ -79,7 +81,9 @@ ImageBlock = {
 			o.type = image_type
 			o.color = image_color
 			o.image_path = windower.addon_path..'textures/'..settings.image_folder_name..'/'.. image_type ..'.png'
-			o.name = 'block_' .. order
+			local randn = 16^6 * math.random()
+			randn = math.floor(randn)
+			o.name = (_addon and _addon.name or 'image') .. '_gensym_' .. tostring(t):sub(6) .. string.format('_%.8x', randn):sub(3)
 			o.x = sections.background:position_x()
 			o.y = sections.background:position_y()
 			check_positions()
@@ -91,7 +95,9 @@ ImageBlock = {
 				o.type = image_type
 				o.color = image_color
 				o.image_path = windower.addon_path..'textures/'..settings.image_folder_name..'/'..image_color ..'.png'
-				o.name = 'block_' .. order
+				local randn = 16^6 * math.random()
+				randn = math.floor(randn)
+				o.name = (_addon and _addon.name or 'image') .. '_gensym_' .. tostring(t):sub(6) .. string.format('_%.8x', randn):sub(3)
 				o.x, o.y = get_position(o)
 				o.text = {}
 				
@@ -571,6 +577,3 @@ function centre_all_text()
 		windower.text.set_location(sections.block[k].text[2].name, new_centre2 + sections.block[k].x , sections.block[k].text[2].offset_y + sections.block[k].y)
 	end
 end
-
-
-
