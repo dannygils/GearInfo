@@ -1,4 +1,4 @@
-# ** I am no longer supporting this addon **
+# ** This is a fork of sbyg666's GearInfo to fix GI post-September 2020 patch **
 
 
 
