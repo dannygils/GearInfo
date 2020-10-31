@@ -17,7 +17,7 @@ ImageBlock = {
 	x = 0,
 	y = 0,
 	width = 228,
-	height = 42,
+	height = 1,
 	alpha = 255,
 	red = 255,
 	green = 255,
@@ -61,10 +61,10 @@ ImageBlock = {
 		
 		if image_type == 'background' then
 			o.width = 228
-			o.height = 42
+			o.height = 1
 			o.image_path = ''
 			o.dragable = true
-			o.alpha = 255
+			o.alpha = 0
 			o.red = 0
 			o.green = 0 
 			o.blue = 0
@@ -77,7 +77,7 @@ ImageBlock = {
 			o.y = settings.display.pos.y
 		elseif image_type == 'logo' then
 			o.width = 228
-			o.height = 42
+			o.height = 1
 			o.type = image_type
 			o.color = image_color
 			o.image_path = windower.addon_path..'textures/'..settings.image_folder_name..'/'.. image_type ..'.png'
@@ -102,13 +102,13 @@ ImageBlock = {
 				o.text = {}
 				
 	
-				o.text[1] = {name = 'text1'..o.name, text = text1, offset_x = 3 , offset_y = 3}
+				o.text[1] = {name = 'text1'..o.name, text = text1, offset_x = 3 , offset_y = 5}
 				
 				windower.text.create(o.text[1].name)
 				windower.text.set_text(o.text[1].name, o.text[1].text)
 				--windower.text.set_color(o.text[1].name, 255, 0, 0, 0)
-				windower.text.set_color(o.text[1].name, 255, 150,150,235)
-				windower.text.set_font_size(o.text[1].name, 9)
+				windower.text.set_color(o.text[1].name, 255, 255,255,255)
+				windower.text.set_font_size(o.text[1].name, 7)
 				windower.text.set_visibility(o.text[1].name, true)
 				windower.text.set_font(o.text[1].name,'Tahoma') --'Verdana'
 				windower.text.set_stroke_width(o.text[1].name, 0)
@@ -119,13 +119,13 @@ ImageBlock = {
 				
 				--print(windower.text.get_extents(o.text[1].name))
 				
-				o.text[2] = {name = 'text2'..o.name, text = text2, offset_x = 3 , offset_y = 20}
+				o.text[2] = {name = 'text2'..o.name, text = text2, offset_x = 3 , offset_y = 22}
 				
 				windower.text.create(o.text[2].name)
 				windower.text.set_text(o.text[2].name, o.text[2].text)
 				windower.text.set_bold(o.text[2].name, false)
 				windower.text.set_color(o.text[2].name, 255, 255, 255, 255)
-				windower.text.set_font_size(o.text[2].name, 12)
+				windower.text.set_font_size(o.text[2].name, 9)
 				windower.text.set_visibility(o.text[2].name, true)
 				windower.text.set_font(o.text[2].name,'Tahoma') --'Verdana'
 				windower.text.set_stroke_width(o.text[2].name, 0)
@@ -577,3 +577,6 @@ function centre_all_text()
 		windower.text.set_location(sections.block[k].text[2].name, new_centre2 + sections.block[k].x , sections.block[k].text[2].offset_y + sections.block[k].y)
 	end
 end
+
+
+

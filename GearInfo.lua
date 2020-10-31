@@ -733,37 +733,37 @@ function update()
 		end
 		
 		if settings.player.show_total_haste ==  true then
-			if not sections.block[1] then sections.block[1] = ImageBlock.New(2,'block','red', 'Gear.H', 00) end
-			if not sections.block[2] then sections.block[2] = ImageBlock.New(3,'block','red', 'Magic.H', 00) end
-			if not sections.block[3] then sections.block[3] = ImageBlock.New(4,'block','red', 'JA.H', 00) end
-			if not sections.block[4] then sections.block[4] = ImageBlock.New(5,'block','red', 'Total.H', 00) end
+			if not sections.block[1] then sections.block[1] = ImageBlock.New(2,'block','red', 'G-Haste', 00) end
+			if not sections.block[2] then sections.block[2] = ImageBlock.New(3,'block','red', 'M-Haste', 00) end
+			if not sections.block[3] then sections.block[3] = ImageBlock.New(4,'block','red', 'JA-Haste', 00) end
+			if not sections.block[4] then sections.block[4] = ImageBlock.New(5,'block','red', 'Total', 00) end
 			
 			windower.text.set_text(sections.block[1].text[2].name, (Gear_info['Haste'] + Buffs_inform['g_haste'] ))
 			if (Gear_info['Haste'] + Buffs_inform['g_haste'] ) > 256 then
-				windower.text.set_color(sections.block[1].text[2].name, 255, 255, 0, 0)
-			else
 				windower.text.set_color(sections.block[1].text[2].name, 255, 255, 255, 255)
+			else
+				windower.text.set_color(sections.block[1].text[2].name, 120, 255, 255, 255)
 			end
 			
 			windower.text.set_text(sections.block[2].text[2].name,  (Buffs_inform['ma_haste'] + manual_mhaste))
 			if (Buffs_inform['ma_haste'] + manual_mhaste) > 448 then
-				windower.text.set_color(sections.block[2].text[2].name, 255, 255, 0, 0)
-			else
 				windower.text.set_color(sections.block[2].text[2].name, 255, 255, 255, 255)
+			else
+				windower.text.set_color(sections.block[2].text[2].name, 120, 255, 255, 255)
 			end
 			
 			windower.text.set_text(sections.block[3].text[2].name,  (Buffs_inform['ja_haste'] + manual_jahaste))
 			if (Buffs_inform['ja_haste'] + manual_jahaste) > 256 then
-				windower.text.set_color(sections.block[3].text[2].name, 255, 255, 0, 0)
-			else
 				windower.text.set_color(sections.block[3].text[2].name, 255, 255, 255, 255)
+			else
+				windower.text.set_color(sections.block[3].text[2].name, 120, 255, 255, 255)
 			end
 			
 			windower.text.set_text(sections.block[4].text[2].name,  Total_haste)
 			if Total_haste > 820 then
-				windower.text.set_color(sections.block[4].text[2].name, 255, 255, 0, 0)
-			else
 				windower.text.set_color(sections.block[4].text[2].name, 255, 255, 255, 255)
+			else
+				windower.text.set_color(sections.block[4].text[2].name, 120, 255, 255, 255)
 			end
 		else
 			if sections.block[1] then sections.block[1]:delete() end
@@ -862,14 +862,14 @@ function update()
 		
 		if settings.player.show_tp_Stuff == true then 
 			Gear_TP = get_tp_per_hit()
-			if not sections.block[9] then sections.block[9] = ImageBlock.New(10,'block','yellow', 'TP/h', 00) end
-			if not sections.block[10]  then sections.block[10] = ImageBlock.New(11,'block','yellow', 'to WS', 00) end
+			if not sections.block[9] then sections.block[9] = ImageBlock.New(10,'block','yellow', 'TP/swing', 00) end
+			if not sections.block[10]  then sections.block[10] = ImageBlock.New(11,'block','yellow', 'X-hit', 00) end
 			windower.text.set_text(sections.block[9].text[2].name, Gear_TP.tp_per_hit_melee)
 			windower.text.set_text(sections.block[10].text[2].name, (math.ceil(10000/Gear_TP.tp_per_hit_melee)/10))
 			
 			if Gear_TP.tp_per_hit_range > 0 then
-				if not sections.block[16] then sections.block[16] = ImageBlock.New(17,'block','green', 'R.TP/h', 00) end
-				if not sections.block[17] then sections.block[17] = ImageBlock.New(18,'block','green', 'R.to WS', 00) end
+				if not sections.block[16] then sections.block[16] = ImageBlock.New(17,'block','green', 'TP/shot', 00) end
+				if not sections.block[17] then sections.block[17] = ImageBlock.New(18,'block','green', 'X-hit', 00) end
 				windower.text.set_text(sections.block[16].text[2].name,  Gear_TP.tp_per_hit_range )
 				windower.text.set_text(sections.block[17].text[2].name,  (math.ceil(10000/Gear_TP.tp_per_hit_range)/10) )
 			else
@@ -889,7 +889,7 @@ function update()
 					windower.text.set_text(sections.block[16].text[2].name, (math.ceil((10000 - (WSTP *10))/Gear_TP.tp_per_hit_range)/10) )
 				end
 			else
-				windower.text.set_text(sections.block[10].text[1].name, 'to WS' )
+				windower.text.set_text(sections.block[10].text[1].name, 'X-hit' )
 				if sections.block[11] then sections.block[11]:delete() end
 				if sections.block[18] then sections.block[18]:delete() end
 			end
