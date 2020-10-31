@@ -1,6 +1,7 @@
 # ** This is a fork of sbyg666's GearInfo to fix GI post-September 2020 patch **
 
 If you download and replace all of your files, your GearInfo will look like this:
+
 ![Updated](https://github.com/dannygils/GearInfo/blob/master/gearinfo.png)
 
 If you only want to fix GearInfo because it broke in the September 2020 patch, simply download _FIXED-Image_processing.lua and use it to replace Image_processing.lua
